@@ -14364,6 +14364,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/chewy/Programming/Portfolio/Portfolio/Views/Sorting/Index.cshtml",
+      "TargetPath": "Views/Sorting/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/chewy/Programming/Portfolio/Portfolio/Views/_ViewImports.cshtml",
       "TargetPath": "Views/_ViewImports.cshtml",
       "FileKind": "mvc"

@@ -8,17 +8,10 @@ namespace MvcMovie.Controllers
         // 
         // GET: /SortingController/
 
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
 
-        // 
-        // GET: /SortingController/Welcome/ 
-
-        public string Welcome()
-        {
-            return "This is the Welcome action method...";
-        }
     }
 }
