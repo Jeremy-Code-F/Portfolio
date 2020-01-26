@@ -1,6 +1,20 @@
-
+@* TODO: Organize this garbage so it's more pleasant to look at *@
 <div class="container">
     <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-secondary">Reset</button>
+        </div>
+        <div class="col-md-10">
+            <div class="slidecontainer">
+                <p style="margin-bottom: 0px;">Adjust the speed with this slider!</p>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                <span style="float: left;">Faster</span>
+                <span style="float: right;">Slower</span>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row" style="margin-top: 1em;">
         <div class="col-md-2">
             <button onclick="bubbleSort()" class="btn btn-primary">Bubble Sort</button>
         </div>

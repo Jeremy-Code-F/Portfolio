@@ -2,6 +2,10 @@ var arrayToSort = [];
 var numberOfNumbers = 100;
 var waitTime = 100;
 window.addEventListener('DOMContentLoaded', (event) => {
+    var slider = document.getElementById("myRange")
+    slider.oninput = function(){
+        waitTime = this.value;
+    }
 
     //Generate an array with n elements random number
     let numberHolder = document.getElementById("barHolder");
