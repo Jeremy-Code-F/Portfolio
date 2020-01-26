@@ -1,0 +1,50 @@
+.boardOutline{
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+}
+
+.boardSpace{
+    
+}
+
+.XMark{
+    height: 100px;
+    width: 100px;
+    background-color: #FA6900;
+    border-radius: 5px;
+    position: relative;
+}
+
+.XMark:after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\274c";
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 100px;
+    text-align: center;
+}
+
+.OMark{
+    height: 100px;
+    width: 100px;
+    background-color: #4368e0;
+    border-radius: 5px;
+    position: relative;
+}
+.OMark:after{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "\25cb";
+    font-size: 50px; 
+    color: #FFF;
+    line-height: 100px;
+    text-align: center;
+}
