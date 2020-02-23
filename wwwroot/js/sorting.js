@@ -144,14 +144,18 @@ function merge(arr, low, middle, r) {
   let rightArr = new Array(secondHalf);
 
   for (let i = 0; i < firstHalf; i++) {
-    leftArr[i] = arr[low + i];
+    leftArr[i] = arr[low + i].id;
   }
   for (let i = 0; i < secondHalf; i++) {
-    rightArr[i] = arr[middle + 1 + i];
+    rightArr[i] = arr[middle + 1 + i].id;
   }
 
-  leftArr.forEach(element => console.log("left: " + element));
-  rightArr.forEach(element => console.log("Right: " + element))
+  console.log("Left array");
+  console.log(leftArr);
+  console.log("Right array");
+  console.log(rightArr);
+  //leftArr.forEach(element => console.log("left: " + element));
+  //rightArr.forEach(element => console.log("Right: " + element))
 
   let i = 0;
   let j = 0;
@@ -159,37 +163,44 @@ function merge(arr, low, middle, r) {
   console.log("Combining the elements back together");
   let k = low;
   while (i < firstHalf && j < secondHalf) {
-    if (leftArr[i] <= rightArr[j]) {
-      console.log("Adding from left arr: " + leftArr[i]);
-      arr[k] = leftArr[i];
+    if (parseInt(leftArr[i]) <= parseInt(rightArr[j])) {
+      console.log("Swap? Adding from left arr: " + leftArr[i]);
+      arr[k].id = leftArr[i];
+      arr[k].style.height = leftArr[i] + "%";
       i++;
     } else {
-      console.log("Adding from right arr: " + rightArr[i]);
-      arr[k] = rightArr[j];
+      console.log("Swap? Adding from right arr: " + rightArr[j]);
+      arr[k].id = rightArr[j];
+      arr[k].style.height = rightArr[j] + "%";
       j++;
     }
     k++;
   }
 
-
+  //Add the rest of the elements that ARE in order from here that got left in one of the arrays from the while loop above
   while (i < firstHalf) {
     console.log("Adding from left arr: " + leftArr[i]);
-    arr[k] = leftArr[i];
+    arr[k].id = leftArr[i];
+    arr[k].style.height = leftArr[i] + "%";
     i++;
     k++;
   }
 
   while (j < secondHalf) {
-    console.log("Adding from right arr: " + rightArr[i]);
-    arr[k] = rightArr[j];
+    console.log("Adding from right arr: " + rightArr[j]);
+    arr[k].id = rightArr[j];
+    arr[k].style.height = rightArr[j] + "%";
     j++;
     k++;
   }
 
-  arr.forEach(element => console.log("Arr: " + element));
+  console.log(arr);
+  //arr.forEach(element => console.log("Arr: " + element));
 }
 
 function mergeSort(arr, left, right) {
+  console.log(arr);
+  console.log("\n");
   if (left < right) {
     let middle = parseInt((left + right) / 2);
 
@@ -200,4 +211,10 @@ function mergeSort(arr, left, right) {
 
     console.log(arr);
   }
+}
+
+function doMergeSort(){
+  let numberHolder = document.getElementById("barHolder");
+  let arr = numberHolder.children;
+  mergeSort(arr, 0, arrayToSort.length - 1);
 }
