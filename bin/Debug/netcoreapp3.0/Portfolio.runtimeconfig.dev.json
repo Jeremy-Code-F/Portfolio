@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\jerem\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\jerem\\.nuget\\packages"
+      "/home/chewy/.dotnet/store/|arch|/|tfm|",
+      "/home/chewy/.nuget/packages"
     ]
   }
 }
