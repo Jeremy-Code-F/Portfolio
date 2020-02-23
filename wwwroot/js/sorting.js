@@ -7,6 +7,10 @@ window.addEventListener("DOMContentLoaded", event => {
     waitTime = this.value;
   };
 
+  generateBarGraph();
+});
+
+function generateBarGraph(){
   //Generate an array with n elements random number
   let numberHolder = document.getElementById("barHolder");
   for (let i = 0; i < numberOfNumbers; i++) {
@@ -21,7 +25,29 @@ window.addEventListener("DOMContentLoaded", event => {
     newBar.style.border = ".5px solid white";
     numberHolder.appendChild(newBar);
   }
-});
+}
+
+function resetBarGraph(){
+  let numberHolder = document.getElementById("barHolder");
+  let numOfNumbersInput = document.getElementById("numOfNumbersInput");
+  numberOfNumbers = parseInt(numOfNumbersInput.value);
+
+  if(numberOfNumbers < 1){
+    alert("Number of items to sort cannot be less than 1");
+    numberOfNumbers = 100;
+  }
+  else if(numberOfNumbers > 200){
+    alert("Number of items to sort cannot be greater than 200");
+    numberOfNumbers = 200;
+  }
+
+
+  for (var i = numberHolder.children.length - 1; i >= 0; --i) {
+    numberHolder.children[i].remove();
+  }
+  arrayToSort = [];
+  generateBarGraph();
+}
 
 function timer() {
   ms = waitTime;

@@ -2,8 +2,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <button class="btn btn-secondary">Reset</button>
+            <button class="btn btn-secondary" onclick="resetBarGraph()">Reset</button>
         </div>
+
+        <input id="numOfNumbersInput" class="form-control" placeholder="Enter amount of numbers to sort (1 - 200)"></input>
+        
         <div class="col-md-10">
             <div class="slidecontainer">
                 <p style="margin-bottom: 0px;">Adjust the speed with this slider!</p>
@@ -21,6 +24,10 @@
         
         <div class="col-md-2">
             <button onclick="quickSort()" class="btn btn-primary">Quick Sort</button>
+        </div>
+
+        <div class="col-md-2">
+            <button onclick="doMergeSort()" class="btn btn-primary">Merge Sort</button>
         </div>
         
     </div>
