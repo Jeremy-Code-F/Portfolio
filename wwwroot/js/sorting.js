@@ -1,5 +1,5 @@
 var arrayToSort = [];
-var numberOfNumbers = 10;
+var numberOfNumbers = 100;
 var waitTime = 100;
 window.addEventListener("DOMContentLoaded", event => {
   var slider = document.getElementById("myRange");
@@ -136,7 +136,8 @@ async function quickSortLoad(arr, low, high) {
   }
 }
 
-function merge(arr, low, middle, r) {
+async function merge(arr, low, middle, r) {
+  await timer(waitTime);
   let firstHalf = middle - low + 1;
   let secondHalf = r - middle;
 
@@ -145,33 +146,35 @@ function merge(arr, low, middle, r) {
 
   for (let i = 0; i < firstHalf; i++) {
     leftArr[i] = arr[low + i].id;
+    await timer(waitTime);
+    arr[low + i].style.backgroundColor = "green";
   }
   for (let i = 0; i < secondHalf; i++) {
     rightArr[i] = arr[middle + 1 + i].id;
+    await timer(waitTime);
+    arr[middle + 1 + i].style.backgroundColor = "green";
   }
 
-  console.log("Left array");
-  console.log(leftArr);
-  console.log("Right array");
-  console.log(rightArr);
-  //leftArr.forEach(element => console.log("left: " + element));
-  //rightArr.forEach(element => console.log("Right: " + element))
+
 
   let i = 0;
   let j = 0;
 
-  console.log("Combining the elements back together");
+
   let k = low;
   while (i < firstHalf && j < secondHalf) {
     if (parseInt(leftArr[i]) <= parseInt(rightArr[j])) {
-      console.log("Swap? Adding from left arr: " + leftArr[i]);
+
       arr[k].id = leftArr[i];
       arr[k].style.height = leftArr[i] + "%";
+      arr[k].style.backgroundColor = "blue";
+
       i++;
     } else {
-      console.log("Swap? Adding from right arr: " + rightArr[j]);
       arr[k].id = rightArr[j];
       arr[k].style.height = rightArr[j] + "%";
+      arr[k].style.backgroundColor = "blue";
+
       j++;
     }
     k++;
@@ -179,37 +182,37 @@ function merge(arr, low, middle, r) {
 
   //Add the rest of the elements that ARE in order from here that got left in one of the arrays from the while loop above
   while (i < firstHalf) {
-    console.log("Adding from left arr: " + leftArr[i]);
     arr[k].id = leftArr[i];
     arr[k].style.height = leftArr[i] + "%";
+    arr[k].style.backgroundColor = "blue";
+
     i++;
     k++;
   }
 
   while (j < secondHalf) {
-    console.log("Adding from right arr: " + rightArr[j]);
     arr[k].id = rightArr[j];
     arr[k].style.height = rightArr[j] + "%";
+    arr[k].style.backgroundColor = "blue";
+
     j++;
     k++;
   }
 
-  console.log(arr);
-  //arr.forEach(element => console.log("Arr: " + element));
+
 }
 
-function mergeSort(arr, left, right) {
-  console.log(arr);
-  console.log("\n");
+async function mergeSort(arr, left, right) {
   if (left < right) {
     let middle = parseInt((left + right) / 2);
 
-    mergeSort(arr, left, middle);
-    mergeSort(arr, middle + 1, right);
+    //await timer(waitTime);
+    await mergeSort(arr, left, middle);
+    //await timer(waitTime);
+    await mergeSort(arr, middle + 1, right);
 
-    merge(arr, left, middle, right);
-
-    console.log(arr);
+    //await timer(waitTime);
+    await merge(arr, left, middle, right);
   }
 }
 
