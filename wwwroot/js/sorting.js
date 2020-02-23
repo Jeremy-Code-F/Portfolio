@@ -1,5 +1,5 @@
 var arrayToSort = [];
-var numberOfNumbers = 100;
+var numberOfNumbers = 10;
 var waitTime = 100;
 window.addEventListener("DOMContentLoaded", event => {
   var slider = document.getElementById("myRange");
@@ -150,32 +150,43 @@ function merge(arr, low, middle, r) {
     rightArr[i] = arr[middle + 1 + i];
   }
 
+  leftArr.forEach(element => console.log("left: " + element));
+  rightArr.forEach(element => console.log("Right: " + element))
+
   let i = 0;
   let j = 0;
 
+  console.log("Combining the elements back together");
   let k = low;
   while (i < firstHalf && j < secondHalf) {
     if (leftArr[i] <= rightArr[j]) {
+      console.log("Adding from left arr: " + leftArr[i]);
       arr[k] = leftArr[i];
       i++;
     } else {
+      console.log("Adding from right arr: " + rightArr[i]);
       arr[k] = rightArr[j];
       j++;
     }
     k++;
   }
 
+
   while (i < firstHalf) {
+    console.log("Adding from left arr: " + leftArr[i]);
     arr[k] = leftArr[i];
     i++;
     k++;
   }
 
   while (j < secondHalf) {
+    console.log("Adding from right arr: " + rightArr[i]);
     arr[k] = rightArr[j];
     j++;
     k++;
   }
+
+  arr.forEach(element => console.log("Arr: " + element));
 }
 
 function mergeSort(arr, left, right) {
